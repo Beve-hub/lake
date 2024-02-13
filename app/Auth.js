@@ -4,11 +4,14 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import Home from '../screen/Home'
-import Post from '../screen/Post'
-import Message from './../screen/Message';
-import Profile from './../screen/Profile';
-import Splash from './../welcome/Splash';
+import Home from './screen/Home'
+import Post from './screen/Post'
+import Message from './screen/Message';
+import Profile from './screen/Profile';
+import Board from './welcome/Board';
+
+
+
 
 
 const Tab = createMaterialBottomTabNavigator();
@@ -77,9 +80,8 @@ function Auth(props) {
     return (
         <NavigationContainer independent={true}>
             <Stack.Navigator
-            screenOptions={{headerShown:false}}
-            >
-                <Stack.Screen name='Splash' component={Splash}/>
+            screenOptions={{headerShown:false}} >
+                <Stack.Screen name='Board' component={Board}/>
                 <Stack.Screen name='MainScreen' component={MainScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
