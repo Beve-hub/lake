@@ -1,4 +1,4 @@
-import {KeyboardAvoidingView,Animated, Easing, StyleSheet, Text, View, useWindowDimensions, Image,Modal,ActivityIndicator , TouchableOpacity,TextInput } from 'react-native'
+import {KeyboardAvoidingView,Animated,Platform, Easing, StyleSheet, Text, View, useWindowDimensions, Image,Modal,ActivityIndicator , TouchableOpacity,TextInput } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import React, {useState, useRef, useEffect} from 'react';
 import { StatusBar } from "expo-status-bar";
@@ -71,7 +71,7 @@ const Login = ({
     };
 
     return (
-      <KeyboardAvoidingView style={{flex:1, justifyContent:'center', }}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{flex:1, justifyContent:'center', }}>
         <StatusBar style="dark" />
         <Image source={require('../../assets/images/tpt.png')} style={[styles.imaged, {width, resizeMode: 'contain'}]}/>
        

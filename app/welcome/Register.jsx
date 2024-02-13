@@ -1,14 +1,4 @@
-import {
-    Animated,
-    Easing,
-    StyleSheet,
-    Text,
-    View,
-    useWindowDimensions,
-    Image,
-    TouchableOpacity,
-    TextInput,
-  } from "react-native";
+import {KeyboardAvoidingView,Animated,Platform, Easing, StyleSheet, Text, View, useWindowDimensions, Image,Modal,ActivityIndicator , TouchableOpacity,TextInput } from 'react-native'
   import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
@@ -64,38 +54,7 @@ import {
       }).start();
     };
   
-    const returnAnimatedTitleStyles = {
-      transform: [
-        {
-          translateY: animatedValue?.current?.interpolate({
-            inputRange: [0, 1],
-            outputRange: [22, 1],
-            extrapolate: "clamp",
-          }),
-        },
-      ],
-      fontSize: animatedValue?.current?.interpolate({
-        inputRange: [0, 1],
-        outputRange: [titleInActiveSize, titleActiveSize],
-        extrapolate: "clamp",
-      }),
-      color: animatedValue?.current?.interpolate({
-        inputRange: [0, 1],
-        outputRange: [titleInactiveColor, titleActiveColor],
-      }),
-    };
-  
-    const viewStyles = {
-      borderBottomColor: animatedValue?.current?.interpolate({
-        inputRange: [0, 1],
-        outputRange: [titleInactiveColor, titleActiveColor],
-      }),
-      borderRadius: 5,
-      height: 50,
-      borderWidth: 1,
-      paddingLeft: 10,
-    };
-  
+
     const onFocus = () => {
       startAnimation();
     };
@@ -112,7 +71,7 @@ import {
     };
   
     return (
-      <View style={{ flex: 1, justifyContent: "center" }}>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{flex:1, justifyContent:'center', }}>
         <StatusBar style="dark" />
         <Image
           source={require("../../assets/images/tpt.png")}
@@ -259,7 +218,7 @@ import {
         />
   
         
-      </View>
+      </KeyboardAvoidingView >
     );
   };
   
