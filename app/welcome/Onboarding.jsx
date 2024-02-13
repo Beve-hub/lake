@@ -50,6 +50,7 @@ const Onboarding = () => {
         />
       </ScrollView>
       <Paginator data={data} scrollX={scrollX} />  
+      <NextButton />
     </View>
   );
 };
